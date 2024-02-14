@@ -38,7 +38,7 @@ const navItems = [
     subMenu: [
       {
         text: `Principal's Information`,
-        link: '/principals-information',
+        link: '/principals-info',
       },
       {
         text: `Principal's Information`,
@@ -104,7 +104,7 @@ const navItems = [
     subMenu: [
       {
         text: `Recent Notices`,
-        link: '/recent-notices',
+        link: '/notices',
       },
       {
         text: `Office Order`,
@@ -172,7 +172,7 @@ const navItems = [
 const Navbar = () => {
   const pathname = usePathname();
   const [activeNav, setActiveNav] = useState(false);
-  const [subMenu, setSubMenu] = useState(1);
+  const [subMenu, setSubMenu] = useState(0);
 
   return (
     <>
@@ -199,21 +199,26 @@ const Navbar = () => {
             </div>
             {/* nav */}
             <ul
-              className={`flex flex-col md:flex-row items-center justify-between w-full gap-6 py-4 md:py-0 ${
+              className={`flex-col md:flex-row items-center justify-between w-full gap-6 py-4 md:py-0 ${
                 activeNav ? 'flex' : 'hidden md:flex'
               }`}
             >
               {navItems.map((item, i) => (
                 <li
-                  className={`relative flex items-center gap-2 text-base font-medium hover:scale-105 z-[1000] ${
+                  className={`relative flex items-center gap-2 text-base font-medium z-[1000] ${
                     pathname === item.link && 'text-primary'
                   }`}
                   key={i}
+                  onClick={() =>
+                    item.subMenu && subMenu !== i
+                      ? setSubMenu(i)
+                      : setSubMenu(0)
+                  }
                 >
                   <Link href={item.link ? item.link : ''}>{item.text}</Link>
                   {item.subMenu && <FaChevronDown />}
                   {item.subMenu && subMenu === i && (
-                    <ul className="absolute top-[111%] flex flex-col gap-y-2 right-0 shadow-light bg-white p-4 md:p-6 min-w-[250px]">
+                    <ul className="absolute top-[111%] flex flex-col gap-y-2 left-1/2 md:-left-full -translate-x-1/2 md:translate-x-0 shadow-light bg-white p-4 md:p-6 min-w-[250px] rounded z-[9999]">
                       {item.subMenu.map((sub, j) => {
                         return (
                           <li
