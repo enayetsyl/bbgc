@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import vicePri from '@/public/assets/teachers/vice-principle.jpeg';
+import vicePri from '@/public/assets/teachers/vice-principal.jpeg';
 
 const VicePriBio = () => {
   return (
@@ -7,12 +7,12 @@ const VicePriBio = () => {
       <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
         <Image
           src={vicePri}
-          alt="vice-principle"
+          alt="vice-principal"
           className="w-28 h-28 xl:w-36 xl:h-36 object-cover rounded-md"
         />
         <div>
           <h5 className="text-2xl font-semibold">MD. Tarikul Islam</h5>
-          <h5 className="text-lg font-medium">Vice Principle</h5>
+          <h5 className="text-lg font-medium">Vice Principal</h5>
           <h5 className="font-medium">ID: 00004243</h5>
           <p className="opacity-75 italic">tarikul-et@yahoo.com</p>
         </div>

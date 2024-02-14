@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import logo from '@/public/assets/logo.png';
 import { usePathname } from 'next/navigation';
-import { FaChevronDown } from 'react-icons/fa';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 const navItems = [
   {
@@ -36,10 +36,6 @@ const navItems = [
   {
     text: 'Academic',
     subMenu: [
-      {
-        text: `Principal's Information`,
-        link: '/principals-info',
-      },
       {
         text: `Principal's Information`,
         link: '/principal',
@@ -104,7 +100,7 @@ const navItems = [
     subMenu: [
       {
         text: `Recent Notices`,
-        link: '/notices',
+        link: '/notice',
       },
       {
         text: `Office Order`,
@@ -129,7 +125,7 @@ const navItems = [
     subMenu: [
       {
         text: `Exam Notices`,
-        link: '/exam-notices',
+        link: '/exam-notice',
       },
       {
         text: `Exam Routine`,
@@ -205,7 +201,7 @@ const Navbar = () => {
             >
               {navItems.map((item, i) => (
                 <li
-                  className={`relative flex items-center gap-2 text-base font-medium z-[1000] ${
+                  className={`relative flex items-center gap-2 text-base font-medium z-[1000] hover:cursor-pointer ${
                     pathname === item.link && 'text-primary'
                   }`}
                   key={i}
@@ -216,7 +212,8 @@ const Navbar = () => {
                   }
                 >
                   <Link href={item.link ? item.link : ''}>{item.text}</Link>
-                  {item.subMenu && <FaChevronDown />}
+                  {item.subMenu && subMenu !== i && <FaChevronDown />}
+                  {item.subMenu && subMenu === i && <FaChevronUp />}
                   {item.subMenu && subMenu === i && (
                     <ul className="absolute top-[111%] flex flex-col gap-y-2 left-1/2 md:-left-full -translate-x-1/2 md:translate-x-0 shadow-light bg-white p-4 md:p-6 min-w-[250px] rounded z-[9999]">
                       {item.subMenu.map((sub, j) => {
