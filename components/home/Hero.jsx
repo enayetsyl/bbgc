@@ -1,22 +1,44 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import one from '../../public/assets/one.jpg';
-import Lottie, { useLottie } from 'lottie-react';
-import ScrollDown from '../common/ScrollDown.json';
+import { useLottie } from 'lottie-react';
+import ScrollDown from '@/components/common/ScrollDown.json';
+import one from '@/public/assets/one.jpg';
+import eleven from '@/public/assets/11.jpg';
+import seventeen from '@/public/assets/17.jpg';
+import seven from '@/public/assets/seven.jpg';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+
+const sliderData = [
+  { image: one },
+  { image: eleven },
+  { image: seven },
+  { image: seventeen },
+];
 
 const Hero = () => {
+  const [activeImage, setActiveImage] = useState(1);
+
+  useEffect(() => {
+    let imageSlider = setInterval(() => {
+      setActiveImage((prev) => (prev === sliderData.length - 1 ? 0 : prev + 1));
+    }, 4000);
+
+    return () => clearInterval(imageSlider);
+  }, []);
+
+  //lottie image
   const options = {
     animationData: ScrollDown,
     loop: true,
   };
-
   const { View } = useLottie(options);
 
   return (
     <header className="relative min-h-[50vh] md:min-h-[80vh] py-12 md:py-20 flex justify-center items-center z-10">
       <Image
-        src={one}
+        src={sliderData[activeImage].image}
         alt="one"
         className="absolute inset-0 h-full w-full object-cover -z-10"
       />
@@ -35,8 +57,31 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* lottie */}
       <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 bg-white rounded-t-md px-4">
         {View}
+      </div>
+
+      {/* arrows */}
+      <div
+        className="absolute top-1/2 -translate-y-1/2 left-5 bg-white rounded-full flex justify-center items-center w-11 h-11 z-20 cursor-pointer hover:bg-primary hover:text-white duration-300"
+        onClick={() =>
+          setActiveImage((prev) =>
+            prev === 0 ? sliderData.length - 1 : prev - 1
+          )
+        }
+      >
+        <FaArrowLeft />
+      </div>
+      <div
+        className="absolute top-1/2 -translate-y-1/2 right-5 bg-white rounded-full flex justify-center items-center w-11 h-11 z-20 cursor-pointer hover:bg-primary hover:text-white duration-300"
+        onClick={() =>
+          setActiveImage((prev) =>
+            prev === sliderData.length - 1 ? 0 : prev + 1
+          )
+        }
+      >
+        <FaArrowRight />
       </div>
     </header>
   );

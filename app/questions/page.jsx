@@ -1,6 +1,6 @@
 import Header from '@/components/common/Header';
-import ecoOne from '/public/assets/economics1.jpg';
-import ecoTwo from '/public/assets/economics2.jpg';
+import ecoOne from '@/public/assets/economics1.jpg';
+import ecoTwo from '@/public/assets/economics2.jpg';
 import Image from 'next/image';
 
 const Questions = () => {

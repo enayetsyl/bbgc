@@ -7,11 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        primary: ['Open Sans'],
-        secondary: ['Inter'],
-        tertiary: ['Great Vibes'],
-      },
       colors: {
         primary: '#B20A0B',
         secondary: '#F2F2F2',

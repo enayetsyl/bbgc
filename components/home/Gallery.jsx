@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import SectionHeadingText from '../common/SectionHeadingText';
-import imageOne from '../../public/assets/one.jpg';
-import imageTwo from '../../public/assets/two.jpg';
-import imageFour from '../../public/assets/four.jpg';
-import imageFive from '../../public/assets/five.jpg';
-import imageSix from '../../public/assets/six.jpg';
-import imageSeven from '../../public/assets/seven.jpg';
+import imageOne from '@/public/assets/one.jpg';
+import imageTwo from '@/public/assets/two.jpg';
+import imageFour from '@/public/assets/four.jpg';
+import imageFive from '@/public/assets/five.jpg';
+import imageSix from '@/public/assets/six.jpg';
+import imageSeven from '@/public/assets/seven.jpg';
 
 const galleryData = [
   imageOne,

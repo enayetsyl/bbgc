@@ -1,5 +1,5 @@
 {
-  "name": "gulf-auction",
+  "name": "beanibazar-degree-college",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,15 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^4.41.3",
     "core-js": "^3.35.0",
     "flowbite-react": "^0.7.2",
     "lottie-react": "^2.4.0",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-fast-marquee": "^1.6.4",
     "react-icons": "^4.12.0",
     "react-scroll-to-top": "^3.0.0",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.6"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

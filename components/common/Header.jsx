@@ -1,4 +1,4 @@
-import imageOne from '../../public/assets/eight.jpg';
+import imageOne from '@/public/assets/eight.jpg';
 
 const Header = ({ text }) => {
   return (
